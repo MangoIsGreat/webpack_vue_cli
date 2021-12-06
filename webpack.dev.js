@@ -1,7 +1,11 @@
+const { webpack } = require('webpack')
 const merge = require('webpack-merge')
 const common = require('./webpack.base.js')
 
 module.exports = merge(common, {
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+    ],
     devServer: {
         contentBase: './dist', // 本地服务器所加载文件的目录
         port: '8899',
